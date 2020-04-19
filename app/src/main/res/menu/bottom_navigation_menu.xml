@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_community"
+        android:icon="@drawable/community"
+        android:title="Community" />
+    <item
+        android:id="@+id/navigation_step"
+        android:icon="@drawable/step"
+        android:title="Step" />
+    <item
+        android:id="@+id/navigation_run"
+        android:icon="@drawable/btn_run"
+        android:title="RUN" />
+    <item
+        android:id="@+id/navigation_rank"
+        android:icon="@drawable/rank"
+        android:title="Ranking" />
+    <item
+        android:id="@+id/navigation_personal"
+        android:icon="@drawable/personal"
+        android:title="Personal" />
+</menu>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="FolowingNumber">14dp</dimen>
+    <dimen name="FolowersNumber">14dp</dimen>
+    <dimen name="FolowingText">10dp</dimen>
+    <dimen name="FolowersText">10dp</dimen>
+
+    <dimen name="FindFriend">10dp</dimen>
+    <dimen name="layout_margin">5dp</dimen>
+</resources>

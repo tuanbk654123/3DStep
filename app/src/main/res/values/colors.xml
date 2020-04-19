@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="Text3DStep">#ED7692</color>
+    <color name="TextTackYourHealth">#FFFFFF</color>
+    <color name="iconColor">#9A9999</color>
+    <color name="BackgroundButtonTab">#FFFFFF</color>
+    <color name="BackgroundButtonTabPress">#F3F3F3</color>
+    <color name="iconColorMode2">#DA5EDA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="them1">#FFFFFF</color>
+    <color name="text">#000000</color>
+    <color name="GoalBackground">#F3F3F3</color>
+</resources>
