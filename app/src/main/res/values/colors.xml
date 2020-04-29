@@ -12,5 +12,11 @@
     <color name="white">#FFFFFF</color>
     <color name="them1">#FFFFFF</color>
     <color name="text">#000000</color>
+    <color name="textStepts">#A6A6A6</color>
+    <color name="textSteptsNumber">#70558C</color>
+
     <color name="GoalBackground">#F3F3F3</color>
+    <color name="LineBackground">#BCBCBC</color>
+    <color name="SelectButtonBarImage">#8C8C8C</color>
+    <color name="SelectButtonBarText">#8C8C8C</color>
 </resources>
