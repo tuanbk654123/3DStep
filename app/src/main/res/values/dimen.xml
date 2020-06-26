@@ -9,4 +9,6 @@
     <dimen name="layout_margin">5dp</dimen>
     <dimen name="TextSteps">10dp</dimen>
     <dimen name="TextStepsNumber">20dp</dimen>
+    <dimen name="MarginCommunityTab">10dp</dimen>
+    <dimen name="TextWorldTime">10dp</dimen>
 </resources>

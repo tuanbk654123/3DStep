@@ -10,8 +10,8 @@
         android:title="Step" />
     <item
         android:id="@+id/navigation_run"
-        android:icon="@drawable/btn_run"
-        android:title="RUN" />
+        android:icon="@drawable/record"
+        android:title="Record" />
     <item
         android:id="@+id/navigation_rank"
         android:icon="@drawable/rank"

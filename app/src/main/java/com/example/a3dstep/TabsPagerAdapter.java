@@ -6,11 +6,11 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import com.example.a3dstep.R;
-import com.example.a3dstep.View.CommunityFragment;
+
+import com.example.a3dstep.View.Community.CommunityFragment;
 import com.example.a3dstep.View.PersonalFragment;
 import com.example.a3dstep.View.RankFragment;
-import com.example.a3dstep.View.RunFragment;
+import com.example.a3dstep.View.Record.RunFragment;
 import com.example.a3dstep.View.StepFragment;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter {

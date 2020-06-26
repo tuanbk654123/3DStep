@@ -1,6 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <fragment
+        android:layout_weight="3"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+<LinearLayout
+    android:layout_weight="1.5"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="0dp">
+    <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@color/cardview_shadow_start_color"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:background="@color/BackgroundButtonTab"
+                android:layout_margin="@dimen/marginTime"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/txtDuration"
+                    android:layout_weight="2"
+                    android:text="00:00:00"
+                    android:gravity="bottom|center"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+                <TextView
+                    android:id="@+id/txtDurationLabel"
+                    android:layout_weight="1"
+                    android:text="Duration"
+                    android:gravity="top|center"
+                    android:textStyle="bold"
+                    android:textSize="10dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="@dimen/marginTime"
+                android:background="@color/BackgroundButtonTab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/txtDistance"
+                    android:layout_weight="2"
+                    android:text="0.00"
+                    android:gravity="bottom|center"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+                <TextView
+                    android:id="@+id/txtDistanceLabel"
+                    android:layout_weight="1"
+                    android:text="Distance (km)"
+                    android:gravity="top|center"
+                    android:textStyle="bold"
+                    android:textSize="10dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+    <LinearLayout
+        android:background="@color/cardview_shadow_start_color"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+            <LinearLayout
+                android:layout_margin="@dimen/marginTime"
+                android:background="@color/BackgroundButtonTab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/txtPace"
+                    android:layout_weight="2"
+                    android:text="0'00"
+                    android:gravity="bottom|center"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+                <TextView
+                    android:id="@+id/txtPaceLabel"
+                    android:layout_weight="1"
+                    android:text="Pace/km"
+                    android:gravity="top|center"
+                    android:textStyle="bold"
+                    android:textSize="10dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="@dimen/marginTime"
+                android:background="@color/BackgroundButtonTab"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/txtAvg"
+                    android:layout_weight="2"
+                    android:text="00'00"
+                    android:gravity="bottom|center"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+                <TextView
+                    android:id="@+id/txtAvgLabel"
+                    android:layout_weight="1"
+                    android:text="AVG/KM"
+                    android:gravity="top|center"
+                    android:textStyle="bold"
+                    android:textSize="10dp"
+                    android:textColor="@color/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+        </LinearLayout>
+
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_weight="0.5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <Button
+            android:id="@+id/btnStart"
+            android:text="START"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"></Button>
+        <Button
+            android:id="@+id/btnStop"
+            android:text="STOP"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"></Button>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

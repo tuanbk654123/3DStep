@@ -46,6 +46,5 @@ public class MainActivity extends AppCompatActivity {
         txt3DStep = (TextView) findViewById(R.id.txt3DStep);
         img3D = (ImageView) findViewById(R.id.img3D);
        //this.getSupportActionBar().hide();
-
     }
 }

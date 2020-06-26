@@ -1,15 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="CommunityFragment"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
 
-        android:textSize="50dp"
-        android:layout_height="wrap_content">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:fitsSystemWindows="true"
+            android:id="@+id/collapsing_toolbarCommunity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/cardview_dark_background"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            >
+
+            <RelativeLayout
+                android:background="@color/iconColorMode2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt3DStepCommunity"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/aladin"
+                    android:text="3D STEP"
+                    android:textColor="@color/them1"
+                    android:textSize="20dp"
+                    android:layout_margin="@dimen/MarginCommunityTab"
+                    android:textStyle="italic|bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.504"
+                    app:layout_constraintStart_toEndOf="@+id/img3D"
+                    app:layout_constraintTop_toTopOf="@+id/img3D">
+                </TextView>
+                <ImageView
+                    android:layout_margin="@dimen/MarginCommunityTab"
+                    android:id="@+id/imgSearchCommunity"
+                    android:src="@drawable/search"
+                    android:layout_toLeftOf="@+id/imgNotifilecation"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="25dp"
+                    android:background="@color/iconColorMode2"
+                    android:layout_height="25dp">
+                </ImageView>
+                <ImageView
+                    android:layout_margin="@dimen/MarginCommunityTab"
+                    android:id="@+id/imgNotifilecation"
+                    android:src="@drawable/notifilecation"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/iconColorMode2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp">
+                </ImageView>
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@color/iconColorMode2"
+            android:layout_height="50dp">
+            <Button
+                android:id="@+id/txtWorldCommunity"
+                android:layout_weight="1"
+                android:textColor="@color/them1"
+                android:background="@color/iconColorMode2"
+                android:text="World"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+            </Button>
+            <Button
+                android:id="@+id/txtFollowCommunity"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/them1"
+                android:background="@color/iconColorMode2"
+                android:text="Follow"
+                android:layout_width="0dp"
+                android:onClick="ClickFollow"
+                android:layout_height="match_parent">
+            </Button>
+            <Button
+                android:id="@+id/txtMeCommunity"
+
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/them1"
+                android:background="@color/iconColorMode2"
+                android:text="Me"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+            </Button>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp">
+            <ImageView
+                android:id="@+id/imgWorldSelect"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/BackgroundButtonTab"
+                ></ImageView>
+
+            <ImageView
+                android:id="@+id/imgFollowSelect"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/iconColorMode2"
+                ></ImageView>
+
+            <ImageView
+                android:id="@+id/imgMeSelect"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:background="@color/iconColorMode2"
+                android:layout_height="match_parent"></ImageView>
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+<!--    <LinearLayout
+        android:id="@+id/mainlayoutCommunity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_anchorGravity="bottom">-->
+        <FrameLayout
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_anchorGravity="bottom"
+                android:id="@+id/frame_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></FrameLayout>
+   <!-- </LinearLayout>-->
 
 
-    </TextView>
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

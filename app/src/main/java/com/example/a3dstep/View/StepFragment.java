@@ -7,6 +7,7 @@ package com.example.a3dstep.View;
         import android.view.ViewGroup;
 
         import com.example.a3dstep.R;
+        import com.example.a3dstep.View.Community.CommunityFragment;
 
         import androidx.fragment.app.Fragment;
 

@@ -1,8 +1,8 @@
 package com.example.a3dstep.View;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import android.widget.ImageView;
 
 import com.example.a3dstep.R;
+import com.example.a3dstep.View.Community.CommunityFragment;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
@@ -78,19 +79,11 @@ public class PersonalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
         View view =inflater.inflate(R.layout.fragment_personal, container, false);
         //addControl
         addControl(view);
 
-
-       /* Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.ava3d);
-
-        imageAvata.setImageBitmap(largeIcon);
-        getRoundedCroppedBitmap(largeIcon);*/
-       addEvent();
-
+        addEvent();
         return view;
     }
 
@@ -101,10 +94,12 @@ public class PersonalFragment extends Fragment {
                 if (Math.abs(verticalOffset)-appBarLayout.getTotalScrollRange() == 0) {
                     //  Collapsed
                     cardViewAva.setVisibility(View.INVISIBLE);
+                    collapsingToolbarLayout.setTitle("PROFILE");
                 }
                 else {
                     //Expanded
                     cardViewAva.setVisibility(View.VISIBLE);
+                    collapsingToolbarLayout.setTitle("");
                 }
             }
         });
@@ -126,6 +121,7 @@ public class PersonalFragment extends Fragment {
                 imgWarter11.setBackgroundResource(R.color.BackgroundButtonTabPress);
             }
         });
+
         imgWarter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,7 +163,8 @@ public class PersonalFragment extends Fragment {
     private void addControl(View view) {
         ((AppCompatActivity)getActivity()).setSupportActionBar((Toolbar) view.findViewById(R.id.toolbar));
         collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.collapsing_toolbar);
-        collapsingToolbarLayout.setTitle("PROFILE");
+
+
         collapsingToolbarLayout.setExpandedTitleColor(getResources().getColor(R.color.colorAccent));
 
         imageAvata = (ImageView) view.findViewById(R.id.imageAvata);

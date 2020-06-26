@@ -6,7 +6,9 @@
     <color name="Text3DStep">#ED7692</color>
     <color name="TextTackYourHealth">#FFFFFF</color>
     <color name="iconColor">#9A9999</color>
+    <color name="iconColorLike">#F1F1F1</color>
     <color name="BackgroundButtonTab">#FFFFFF</color>
+    <color name="BackgroundStep">#FFFFFF</color>
     <color name="BackgroundButtonTabPress">#F3F3F3</color>
     <color name="iconColorMode2">#DA5EDA</color>
     <color name="white">#FFFFFF</color>

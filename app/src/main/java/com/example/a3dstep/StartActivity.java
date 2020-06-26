@@ -8,15 +8,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
 
-import com.example.a3dstep.View.CommunityFragment;
-import com.example.a3dstep.View.PersonalFragment;
-import com.example.a3dstep.View.RankFragment;
-import com.example.a3dstep.View.RunFragment;
-import com.example.a3dstep.View.StepFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import static com.example.a3dstep.View.RunFragment.*;
 
 public class StartActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigation;
@@ -29,7 +22,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         addControl();
-        openFragment(StepFragment.newInstance("", ""));
+       // openFragment(StepFragment.newInstance("", ""));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -66,7 +59,7 @@ public class StartActivity extends AppCompatActivity {
                 @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()) {
                         case R.id.navigation_community:
-                           viewPager.setCurrentItem(0);
+                            viewPager.setCurrentItem(0);
                             // openFragment(CommunityFragment.newInstance("", ""));
                             return true;
                         case R.id.navigation_step:
