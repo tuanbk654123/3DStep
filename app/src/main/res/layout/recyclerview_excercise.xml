@@ -25,17 +25,16 @@
                 android:layout_margin="@dimen/TextWorldTime"
 
                 android:thicknessRatio="1.9">
-                <ImageView
-
+                <com.facebook.login.widget.ProfilePictureView
                     android:layout_height="50dp"
                     android:layout_width="match_parent"
-                    android:id="@+id/imageAvata1"
+                    android:id="@+id/imgRecyclerviewExcerciseAvata"
 
                     android:src="@drawable/capture"
                     android:scaleType="centerCrop"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true">
-                </ImageView>
+                </com.facebook.login.widget.ProfilePictureView>
             </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:layout_width="match_parent"

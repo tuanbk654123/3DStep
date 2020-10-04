@@ -14,6 +14,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            app:collapsedTitleTextAppearance="@style/TextAppearance.Collapsed"
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,7 +26,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/imageBackGround"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:fitsSystemWindows="true"
@@ -62,7 +63,7 @@
                 android:layout_marginLeft="20dp"
                 android:textStyle="bold"
 
-                android:text="NGOC DIEP"
+                android:text="MINH TUẤN"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
             <LinearLayout
 
@@ -131,6 +132,7 @@
                  android:layout_height="match_parent"></LinearLayout>
 
              <Button
+                 android:id="@+id/btnSetting"
                  android:layout_width="wrap_content"
                  android:layout_height="30dp"
                  android:layout_gravity="right|center_vertical"
@@ -139,7 +141,7 @@
                  android:textStyle="bold"
                  android:background="@drawable/my_button_bg"
                  android:gravity="center|center_vertical"
-                 android:text="Find Friend"
+                 android:text="Setting"
                  android:textColor="@color/iconColorMode2"></Button>
          </LinearLayout>
             <LinearLayout
@@ -177,13 +179,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp">
 
-                <ImageView
-                    android:id="@+id/imgWalk"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@color/BackgroundButtonTab"
-                    android:src="@drawable/walk_press"></ImageView>
+
 
                 <ImageView
                     android:id="@+id/imgWalk1"
@@ -214,7 +210,13 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="30dp">
-
+                <ImageView
+                    android:id="@+id/imgWalk"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/BackgroundButtonTab"
+                    android:src="@drawable/walk_press"></ImageView>
                 <ImageView
                     android:id="@+id/imgWarter"
                     android:layout_width="0dp"
@@ -222,6 +224,7 @@
                     android:layout_weight="1"
                     android:background="@color/BackgroundButtonTabPress"
                     android:src="@drawable/bike_press"></ImageView>
+
                 <LinearLayout
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -480,6 +483,15 @@
         app:layout_anchor="@id/appBarLayout"
         app:layout_anchorGravity="bottom|center"
         android:thicknessRatio="1.9">
+        <com.facebook.login.widget.ProfilePictureView
+            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:id="@+id/imageAvataFB"
+
+            android:scaleType="centerCrop"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+        </com.facebook.login.widget.ProfilePictureView>
         <ImageView
             android:layout_height="80dp"
             android:layout_width="match_parent"
@@ -490,6 +502,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true">
         </ImageView>
+
     </androidx.cardview.widget.CardView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

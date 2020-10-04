@@ -16,9 +16,22 @@
     <color name="text">#000000</color>
     <color name="textStepts">#A6A6A6</color>
     <color name="textSteptsNumber">#70558C</color>
+    <color name="textLogin">#FFFFFF</color>
 
     <color name="GoalBackground">#F3F3F3</color>
     <color name="LineBackground">#BCBCBC</color>
     <color name="SelectButtonBarImage">#8C8C8C</color>
     <color name="SelectButtonBarText">#8C8C8C</color>
+
+    <color name="colorRegister">#D1FDE0</color>
+
+    <color name="backgroundLogin">#f8f8f8</color>
+
+    <color name="gradient_start">#5770f3</color>
+    <color name="gradient_end">#8e5aeb</color>
+    <color name="profile_desc">#D1D1FF</color>
+    <color name="bg_meta_container">#000000</color>
+    <color name="profile_default_tint">#e0e0e0</color>
+
+    <color name="text_log_out">#E40505</color>
 </resources>

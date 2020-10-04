@@ -72,7 +72,7 @@ public class FragmentWorld extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerview_tasks);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-       getTasks();
+        getTasks();
         return view;
 
     }

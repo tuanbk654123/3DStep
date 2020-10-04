@@ -1,4 +1,4 @@
-package com.example.a3dstep;
+package com.example.a3dstep.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.a3dstep.R;
+import com.example.a3dstep.View.Login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onAnimationEnd(Animation arg0) {
-                Intent intent = new Intent(MainActivity.this,StartActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 
                 MainActivity.this.startActivity(intent);
             }
@@ -42,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addConTrol() {
-        txtTrackyourHelth = (TextView) findViewById(R.id.txtTrackyourHelth);
-        txt3DStep = (TextView) findViewById(R.id.txt3DStep);
+
         img3D = (ImageView) findViewById(R.id.img3D);
        //this.getSupportActionBar().hide();
     }

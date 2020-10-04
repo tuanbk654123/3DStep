@@ -10,12 +10,16 @@ package com.example.a3dstep.View.Record;
         import android.content.pm.PackageManager;
         import android.graphics.Bitmap;
         import android.graphics.Color;
+        import android.location.Location;
+        import android.location.LocationManager;
         import android.os.AsyncTask;
+        import android.os.Build;
         import android.os.Bundle;
         import android.os.Environment;
         import android.os.Handler;
         import android.os.IBinder;
         import android.preference.PreferenceManager;
+        import android.provider.Settings;
         import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
@@ -24,6 +28,7 @@ package com.example.a3dstep.View.Record;
         import android.widget.TextView;
         import android.widget.Toast;
 
+        import com.example.a3dstep.Data.DataRealTime;
         import com.example.a3dstep.Data.DatabaseClient;
         import com.example.a3dstep.Data.Excercise;
         import com.example.a3dstep.R;
@@ -50,6 +55,7 @@ package com.example.a3dstep.View.Record;
         import java.io.FileOutputStream;
         import java.io.IOException;
         import java.nio.ByteBuffer;
+        import java.text.DecimalFormat;
         import java.text.SimpleDateFormat;
         import java.util.ArrayList;
         import java.util.Arrays;
@@ -86,6 +92,11 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
     List<LatLng> path = new ArrayList();
     long startTime = 0;
     byte[] byteArray;
+    //
+    private static final int REQUEST_LOCATION = 1;
+
+    LocationManager locationManager;
+    String latitude, longitude;
     //runs without a timer by reposting this handler at the end of the runnable
     Handler timerHandler = new Handler();
     Runnable timerRunnable = new Runnable() {
@@ -115,9 +126,10 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
             timerHandler.postDelayed(this, 500);
         }
     };
+	private String TAG = "RunFragment" ;
 
 
-    public RunFragment() {
+	public RunFragment() {
         // Required empty public constructor
     }
     /**
@@ -163,6 +175,7 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+	    Log.e(TAG,"onCreateView");
         final View view = inflater.inflate(R.layout.fragment_run, container, false);
         txtDistance = view.findViewById(R.id.txtDistance);
         txtDuration= view.findViewById(R.id.txtDuration);
@@ -185,6 +198,8 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
                 btnStart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+	                    DataRealTime.PATH = new ArrayList<>();
+
                         mService.requestLocationUpdates();
                         startTime = System.currentTimeMillis();
                         timerHandler.postDelayed(timerRunnable, 0);
@@ -205,8 +220,9 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
                         showAlertDialog();
                     }
                 });
+                //get current location
 
-                setButtonState((Common.requestingLocationUpdate(getActivity())));
+             //   setButtonState((Common.requestingLocationUpdate(getActivity())));
 
                 getActivity().bindService(new Intent(getActivity(),
                                 MyBackgroundService.class), mServiceConnection,
@@ -226,13 +242,30 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
     @Override
     public void onStart() {
         super.onStart();
+	    Log.e(TAG,"onStart");
         PreferenceManager.getDefaultSharedPreferences((getActivity())).registerOnSharedPreferenceChangeListener(this);
         EventBus.getDefault().register(this);
     }
 
-    @Override
+	@Override
+	public void onResume() {
+		super.onResume();
+		//EventBus.getDefault().register(this);
+		Log.e(TAG,"onResume");
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		mService.removeLocationUpdate();
+		timerHandler.removeCallbacks(timerRunnable);
+		//EventBus.getDefault().unregister(this);
+	}
+
+	@Override
     public void onStop() {
         super.onStop();
+        Log.e(TAG,"onStop");
         if (mBound) {
             getActivity().unbindService(mServiceConnection);
             mBound = false;
@@ -270,19 +303,23 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
                     .append(event.getLocation().getLongitude())
                     .toString();
            // Toast.makeText(mService, data, Toast.LENGTH_SHORT).show();
-            path.add(new LatLng(event.getLocation().getLatitude(), event.getLocation().getLongitude()));
+          //  path.add(new LatLng(event.getLocation().getLatitude(), event.getLocation().getLongitude()));
+            path = DataRealTime.PATH;
             if (path.size() > 0) {
-                PolylineOptions opts = new PolylineOptions().addAll(path).color(Color.BLUE).width(5);
+                PolylineOptions opts = new PolylineOptions().addAll(path).color(getContext().getResources().getColor(R.color.iconColorMode2)).width(20);
                 mGoogleMap.addPolyline(opts);
             }
             LatLng location = new LatLng(event.getLocation().getLatitude(), event.getLocation().getLongitude());
             //   mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 17));
+            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
              distance = SphericalUtil.computeLength(path) ;
             Log.e("DIEP", String.valueOf(distance) + " m");
-            int distanceKm = (int) (distance /1000);
+            double distanceKm =  (distance /1000);
             int distanceM = (int) (distance %1000) /10;
-            txtDistance.setText(distanceKm +"."+distanceM);
+
+            DecimalFormat f = new DecimalFormat("0.00");
+            System.out.println(f.format(distance));
+            txtDistance.setText(f.format(distanceKm));
         }
     }
 
@@ -351,7 +388,7 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
                     Noon = "Morning Run";
                 }else if(timecurr >= 11 && timecurr <20){
                     Noon = "Afternoon Run";
-                }else if(timecurr >= 20 && timecurr <4){
+                }else if((timecurr >= 20 && timecurr <24) || (timecurr >=0 && timecurr< 4) ){
                     Noon = "Night Run";
                 }
                 super.onPreExecute();
@@ -360,7 +397,6 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
             @Override
             protected Void doInBackground(Void... voids) {
                 //creating a task
-
                 excercise.setDistance(distance);
                 excercise.setPace(pace);
                 excercise.setTime(time);
@@ -373,7 +409,6 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
                         .insert(excercise);
                 return null;
             }
-
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
@@ -382,7 +417,6 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
                 Toast.makeText(getContext(), "Saved", Toast.LENGTH_LONG).show();
             }
         }
-
         SaveTask st = new SaveTask();
         st.execute();
     }
@@ -394,7 +428,6 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
             public void onSnapshotReady(Bitmap snapshot) {
                 Bitmap bitmap=snapshot;
                 try{
-
                     file=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),"map.png");
                     FileOutputStream fout=new FileOutputStream (file);
                     bitmap.compress (Bitmap.CompressFormat.PNG,90,fout);
@@ -432,13 +465,12 @@ public class RunFragment extends Fragment implements SharedPreferences.OnSharedP
                 }catch (Exception e){
                     e.printStackTrace ();
                     Toast.makeText (getActivity(), "Not Capture", Toast.LENGTH_SHORT).show ();
+                    Log.e("TUAN",e+"");
                 }
-
-
             }
         };
-        mGoogleMap.snapshot (callback);
-
-
+	    mGoogleMap.snapshot(callback);
     }
+
+
 }

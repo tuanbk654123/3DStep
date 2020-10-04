@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import com.google.android.material.tabs.TabLayout;
  * create an instance of this fragment.
  */
 public class CommunityFragment extends Fragment {
+	String TAG = "CommunityFragment";
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -71,17 +73,18 @@ public class CommunityFragment extends Fragment {
         }
     }
 
-    @Override
+  /*  @Override
     public void onAttach(@NonNull Context context) {
         myContext=(FragmentActivity) context;
         super.onAttach(context);
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_community, container, false);
+	    myContext = (FragmentActivity) container.getContext();
         getAllWidgets(view);
         addEvent();
         return view;
@@ -138,9 +141,16 @@ public class CommunityFragment extends Fragment {
     public void replaceFragment(Fragment fragment) {
         FragmentManager fm = myContext.getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.frame_container, fragment);
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.commit();
+	    Fragment prev = fm.findFragmentByTag("TUAN");
+	    if (prev != null) {
+		    //commit immediately
+		    ft.remove(prev).commitAllowingStateLoss();
+		    Log.e(TAG,"Remove Fragment");
+	    }
+	    FragmentTransaction addTransaction  = fm.beginTransaction();
+	    addTransaction .replace(R.id.frame_container, fragment,"TUAN");
+	    addTransaction .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+	    addTransaction .commit();
     }
 
 }

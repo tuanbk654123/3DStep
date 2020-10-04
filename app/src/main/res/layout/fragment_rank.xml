@@ -1,13 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/iconColorMode2"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:background="@drawable/spinner"
+                android:gravity="center">
+                <Spinner
+                    android:textColor="@color/textLogin"
+                    android:id="@+id/spinner1"
+                    android:textSize="20sp"
 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:textSize="18dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:text="09 - 09 - 2020"
+                android:layout_height="wrap_content">
+
+
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:orientation="horizontal"
+            android:background="@drawable/background_rank_personal"
+            >
+            <androidx.cardview.widget.CardView
+
+                android:layout_gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:elevation="12dp"
+                android:id="@+id/cardViewAva"
+                app:cardCornerRadius="50dp"
+                android:layout_centerHorizontal="true"
+                android:innerRadius="0dp"
+                android:shape="ring"
+                android:layout_margin="10dp"
+                app:layout_anchor="@id/appBarLayout"
+                app:layout_anchorGravity="bottom|center"
+                android:thicknessRatio="1.9">
+                <ImageView
+                    android:layout_height="100dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/imageAvataRanking"
+
+                    android:src="@drawable/capture"
+                    android:scaleType="centerCrop"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nguyen Minh Tuan"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textLogin"
+                    ></TextView>
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_margin="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Step: "
+                        android:textSize="15dp"
+                        android:textColor="@color/textLogin"
+                        ></TextView>
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="1234"
+                          android:textSize="15dp"
+                          android:textColor="@color/textLogin"
+                          ></TextView>
+                  </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ranking: "
+                        android:textSize="15dp"
+                        android:textColor="@color/textLogin"
+                        ></TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="15dp"
+                        android:textColor="@color/textLogin"
+                        ></TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
+            android:id="@+id/swiperefresh"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+
+                android:id="@+id/lvRankList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
-</LinearLayout>
+

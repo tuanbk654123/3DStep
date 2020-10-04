@@ -52,4 +52,37 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     testImplementation "android.arch.persistence.room:testing:$room_version"
 
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+
+//FB
+    implementation 'com.facebook.android:facebook-login:[5,6)'
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //Butterknife
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    //dexter permissions
+    implementation "com.karumi:dexter:5.0.0"
+
+    // circular imageview
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation 'com.github.bumptech.glide:annotations:4.7.1'
+    implementation('com.github.bumptech.glide:okhttp3-integration:4.0.0') {
+        exclude group: 'glide-parent'
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
+    implementation 'com.github.yalantis:ucrop:2.2.2'
+
 }

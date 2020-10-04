@@ -11,4 +11,8 @@
     <dimen name="TextStepsNumber">20dp</dimen>
     <dimen name="MarginCommunityTab">10dp</dimen>
     <dimen name="TextWorldTime">10dp</dimen>
+
+    <dimen name="TextLineSetting">60dp</dimen>
+
+
 </resources>

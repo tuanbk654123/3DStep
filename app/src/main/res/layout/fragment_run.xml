@@ -165,12 +165,14 @@
             android:text="START"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:background="@drawable/button_start"
             android:layout_height="match_parent"></Button>
         <Button
             android:id="@+id/btnStop"
             android:text="STOP"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:background="@drawable/button_stop"
             android:layout_height="match_parent"></Button>
     </LinearLayout>
 </LinearLayout>

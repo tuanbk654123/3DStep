@@ -1,4 +1,4 @@
-package com.example.a3dstep;
+package com.example.a3dstep.Adapter;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
@@ -7,8 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.a3dstep.R;
 import com.example.a3dstep.View.Community.CommunityFragment;
-import com.example.a3dstep.View.PersonalFragment;
+import com.example.a3dstep.View.Personal.PersonalFragment;
 import com.example.a3dstep.View.RankFragment;
 import com.example.a3dstep.View.Record.RunFragment;
 import com.example.a3dstep.View.StepFragment;

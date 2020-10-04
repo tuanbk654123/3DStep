@@ -1,4 +1,4 @@
-package com.example.a3dstep;
+package com.example.a3dstep.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.a3dstep.R;
+import com.example.a3dstep.Adapter.TabsPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class StartActivity extends AppCompatActivity {

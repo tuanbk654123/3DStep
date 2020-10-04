@@ -18,20 +18,20 @@ public class Common {
                 toString();
     }
 
-    public static CharSequence getLocationTitle(MyBackgroundService myBackgroundService) {
+   	public static CharSequence getLocationTitle(MyBackgroundService myBackgroundService) {
 
-        return String.format("Location Update: 1$s", DateFormat.getDateInstance().format(new Date()));
-    }
+		return String.format("Location Update: 1$s", DateFormat.getDateInstance().format(new Date()));
+	}
 
-    public static void setRequastingLocationUpdate(Context context, boolean b) {
-        PreferenceManager.getDefaultSharedPreferences(context)
-                .edit()
-                .putBoolean(KEY_REQUESTING_LOCATION_UPDATE,b)
-                .apply();
-    }
+	public static void setRequastingLocationUpdate(Context context, boolean b) {
+		PreferenceManager.getDefaultSharedPreferences(context)
+				.edit()
+				.putBoolean(KEY_REQUESTING_LOCATION_UPDATE,b)
+				.apply();
+	}
 
-    public static boolean requestingLocationUpdate(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean(KEY_REQUESTING_LOCATION_UPDATE,false);
-    }
+	public static boolean requestingLocationUpdate(Context context) {
+		return PreferenceManager.getDefaultSharedPreferences(context)
+				.getBoolean(KEY_REQUESTING_LOCATION_UPDATE,false);
+	}
 }
